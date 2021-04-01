@@ -12,14 +12,14 @@ const validateKeyId = keyId => {
 }
 
 // Generate new RSA key pair
-fastify.get('/crypto/rsa/generate', async (request, reply) => {
+fastify.post('/key', async (request, reply) => {
     const pair = crypto.rsa.generateKeyPair();
     reply.code(HTTP_CODES.CRYPTO_RSA_GENERATE).send(pair);
 })
 
 // Delete an existing RSA key pair
-fastify.post('/crypto/rsa/delete', async (request, reply) => {
-    const {keyId} = request.body;
+fastify.delete('/key/:keyId', async (request, reply) => {
+    const {keyId} = request.params;
 
     validateKeyId(keyId);
 
@@ -28,7 +28,7 @@ fastify.post('/crypto/rsa/delete', async (request, reply) => {
 })
 
 // Sign on a given data using the given key
-fastify.post('/crypto/rsa/sign-on', async (request, reply) => {
+fastify.post('/signature', async (request, reply) => {
     const {keyId, data} = request.body;
 
     validateKeyId(keyId);
@@ -38,7 +38,7 @@ fastify.post('/crypto/rsa/sign-on', async (request, reply) => {
 })
 
 // Verify the given signature on the given data using the given key
-fastify.post('/crypto/rsa/verify', async (request, reply) => {
+fastify.post('/signature/verify', async (request, reply) => {
     const {keyId, data, signature} = request.body;
 
     validateKeyId(keyId);
@@ -48,7 +48,7 @@ fastify.post('/crypto/rsa/verify', async (request, reply) => {
 })
 
 // List all existing keys IDs
-fastify.get('/crypto/rsa/list-all', async (request, reply) => {
+fastify.get('/keys', async (request, reply) => {
     const keyIds = crypto.rsa.getAll();
     reply.code(HTTP_CODES.CRYPTO_RSA_LIST_ALL).send(keyIds);
 })
