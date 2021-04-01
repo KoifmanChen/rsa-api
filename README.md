@@ -4,8 +4,8 @@
 Clone the repository and install all the necessary dependencies
 
 `
-$ git clone https://github.com/KoifmanChen/rsa-api.git
-$ cd rsa-api
+$ git clone https://github.com/KoifmanChen/rsa-api.git<br/>
+$ cd rsa-api<br/>
 $ npm i
 `
 
@@ -15,7 +15,7 @@ Start the dev server
 ## API
 
 
-Desc | Route | Method | Args
+Desc | Route | Method | Params
 ------------ | ------------- | ------------- | -------------
 Generate new RSA key pair | **/crypto/rsa/generate** | GET |
 Delete an existing RSA key pair | **/crypto/rsa/delete** | POST | *keyId*
