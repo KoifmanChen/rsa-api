@@ -3,11 +3,9 @@
 ## Development
 Clone the repository and install all the necessary dependencies
 
-`
-$ git clone https://github.com/KoifmanChen/rsa-api.git<br/>
-$ cd rsa-api<br/>
-$ npm i
-`
+`$ git clone https://github.com/KoifmanChen/rsa-api.git`  
+`$ cd rsa-api`
+`$ npm i`
 
 Start the dev server
 `npm start`
